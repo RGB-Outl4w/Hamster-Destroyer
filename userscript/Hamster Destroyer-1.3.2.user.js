@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hamster Destroyer
 // @namespace    http://tampermonkey.net/
-// @version      1.3.1
+// @version      1.3.2
 // @description  Auto-clicker with a simple UI for Hamster Kombat game
 // @author       OutlawRGB
 // @match        *://hamsterkombatgame.io/clicker*
@@ -69,101 +69,174 @@
     }
 
     const themes = {
-        default: {
-            name: 'Default',
-            bgColor: '#333',
-            textColor: '#fff',
-            borderColor: '#444',
-            accentColor: '#28a745',
-            buttonHoverColor: '#218838',
-            shadowColor: 'rgba(0, 0, 0, 0.3)',
-        },
-        light: {
-            name: 'Light',
-            bgColor: '#f8f9fa',
-            textColor: '#343a40',
-            borderColor: '#ced4da',
-            accentColor: '#007bff',
-            buttonHoverColor: '#0069d9',
-            shadowColor: 'rgba(0, 0, 0, 0.1)',
-        },
-        light2: {
-            // Pastel Light
-            name: 'Pastel Light',
-            bgColor: '#f2f2f2',
-            textColor: '#555',
-            borderColor: '#ddd',
-            accentColor: '#e83e8c', // Pinkish accent
-            buttonHoverColor: '#c82333',
-            shadowColor: 'rgba(0, 0, 0, 0.1)',
-        },
-        light3: {
-            // Creamy
-            name: 'Creamy',
-            bgColor: '#fff5e6',
-            textColor: '#333',
-            borderColor: '#ddd',
-            accentColor: '#008CBA', // Blue accent
-            buttonHoverColor: '#006080',
-            shadowColor: 'rgba(0, 0, 0, 0.1)',
-        },
-        dark: {
-            name: 'Dark',
-            bgColor: '#212529',
-            textColor: '#e9ecef',
-            borderColor: '#343a40',
-            accentColor: '#28a745',
-            buttonHoverColor: '#218838',
-            shadowColor: 'rgba(255, 255, 255, 0.1)',
-        },
-        dark2: {
-            // Darker
-            name: 'Darker',
-            bgColor: '#1a1a1a',
-            textColor: '#ddd',
-            borderColor: '#333',
-            accentColor: '#5cb85c', // Greenish accent
-            buttonHoverColor: '#4cae4c',
-            shadowColor: 'rgba(255, 255, 255, 0.05)',
-        },
-        dark3: {
-            // Slate
-            name: 'Slate',
-            bgColor: '#34495e',
-            textColor: '#bdc3c7',
-            borderColor: '#2c3e50',
-            accentColor: '#e74c3c', // Reddish accent
-            buttonHoverColor: '#c0392b',
-            shadowColor: 'rgba(0, 0, 0, 0.2)',
-        },
-        contrast: {
-            name: 'Green Contrast',
-            bgColor: '#000',
-            textColor: '#0f0',
-            borderColor: '#0f0',
-            accentColor: '#0f0',
-            buttonHoverColor: '#0a0',
-            shadowColor: 'rgba(0, 255, 0, 0.2)',
-        },
-        contrast2: {
-            name: 'Red Contrast',
-            bgColor: '#000',
-            textColor: '#f00',
-            borderColor: '#f00',
-            accentColor: '#f00',
-            buttonHoverColor: '#c00',
-            shadowColor: 'rgba(255, 0, 0, 0.2)',
-        },
-        contrast3: {
-            // Blue on Black
-            name: 'Blue Contrast',
-            bgColor: '#000',
-            textColor: '#08f',
-            borderColor: '#08f',
-            accentColor: '#08f',
-            buttonHoverColor: '#05a',
-            shadowColor: 'rgba(0, 0, 255, 0.2)',
-        },
+	  default: {
+		name: 'Default',
+		bgColor: '#333',
+		textColor: '#fff',
+		borderColor: '#444',
+		accentColor: '#28a745',
+		buttonHoverColor: '#218838',
+		shadowColor: 'rgba(0, 0, 0, 0.3)',
+	  },
+
+	  // ----- LIGHT THEMES -----
+	  light: {
+		name: 'Light',
+		bgColor: '#f8f9fa',
+		textColor: '#343a40',
+		borderColor: '#ced4da',
+		accentColor: '#007bff',
+		buttonHoverColor: '#0069d9',
+		shadowColor: 'rgba(0, 0, 0, 0.1)',
+	  },
+	  light2: {
+		name: 'Pastel Light',
+		bgColor: '#f2f2f2',
+		textColor: '#555',
+		borderColor: '#ddd',
+		accentColor: '#e83e8c',
+		buttonHoverColor: '#c82333',
+		shadowColor: 'rgba(0, 0, 0, 0.1)',
+	  },
+	  light3: {
+		name: 'Creamy',
+		bgColor: '#fff5e6',
+		textColor: '#333',
+		borderColor: '#ddd',
+		accentColor: '#008CBA',
+		buttonHoverColor: '#006080',
+		shadowColor: 'rgba(0, 0, 0, 0.1)',
+	  },
+	  light4: {
+		name: 'Vanilla',
+		bgColor: '#fffdf7', 
+		textColor: '#444',
+		borderColor: '#eee',
+		accentColor: '#f0ad4e',
+		buttonHoverColor: '#ec971f', 
+		shadowColor: 'rgba(0, 0, 0, 0.1)',
+	  },
+	  light5: {
+		name: 'Aqua',
+		bgColor: '#e0ffff',
+		textColor: '#333',
+		borderColor: '#aeeeee',
+		accentColor: '#00cccc',
+		buttonHoverColor: '#00aaaa',
+		shadowColor: 'rgba(0, 0, 0, 0.1)',
+	  },
+	  light6: {
+		name: 'Lavender',
+		bgColor: '#f8f4ff',
+		textColor: '#555',
+		borderColor: '#ddd',
+		accentColor: '#9370db',
+		buttonHoverColor: '#8a2be2',
+		shadowColor: 'rgba(0, 0, 0, 0.1)',
+	  },
+
+	  // ----- DARK THEMES -----
+	  dark: {
+		name: 'Dark',
+		bgColor: '#212529',
+		textColor: '#e9ecef',
+		borderColor: '#343a40',
+		accentColor: '#28a745', 
+		buttonHoverColor: '#218838',
+		shadowColor: 'rgba(255, 255, 255, 0.1)',
+	  },
+	  dark2: {
+		name: 'Darker',
+		bgColor: '#1a1a1a',
+		textColor: '#ddd',
+		borderColor: '#333',
+		accentColor: '#5cb85c',
+		buttonHoverColor: '#4cae4c', 
+		shadowColor: 'rgba(255, 255, 255, 0.05)',
+	  },
+	  dark3: {
+		name: 'Slate',
+		bgColor: '#34495e', 
+		textColor: '#bdc3c7',
+		borderColor: '#2c3e50',
+		accentColor: '#e74c3c',
+		buttonHoverColor: '#c0392b', 
+		shadowColor: 'rgba(0, 0, 0, 0.2)',
+	  },
+	  dark4: {
+		name: 'Midnight Blue',
+		bgColor: '#2c3e50', 
+		textColor: '#eaeaea', 
+		borderColor: '#34495e',
+		accentColor: '#3498db', 
+		buttonHoverColor: '#2980b9', 
+		shadowColor: 'rgba(0, 0, 0, 0.3)',
+	  },
+	  dark5: {
+		name: 'Deep Purple',
+		bgColor: '#4b0082',
+		textColor: '#d2b4de', 
+		borderColor: '#663399',
+		accentColor: '#da70d6',
+		buttonHoverColor: '#ba55d3',
+		shadowColor: 'rgba(255, 255, 255, 0.15)', 
+	  },
+	  dark6: {
+		name: 'Cyberpunk',
+		bgColor: '#120424',
+		textColor: '#00ffea', 
+		borderColor: '#081224',
+		accentColor: '#00ffea',
+		buttonHoverColor: '#00bfff',
+		shadowColor: 'rgba(0, 255, 255, 0.2)', 
+	  },
+
+	  // ----- CONTRAST THEMES -----
+	  contrast: {
+		name: 'Green Contrast',
+		bgColor: '#000',
+		textColor: '#0f0',
+		borderColor: '#0f0',
+		accentColor: '#0f0',
+		buttonHoverColor: '#0a0',
+		shadowColor: 'rgba(0, 255, 0, 0.2)',
+	  },
+	  contrast2: {
+		name: 'Red Contrast',
+		bgColor: '#000',
+		textColor: '#f00',
+		borderColor: '#f00',
+		accentColor: '#f00',
+		buttonHoverColor: '#c00',
+		shadowColor: 'rgba(255, 0, 0, 0.2)',
+	  },
+	  contrast3: {
+		name: 'Blue Contrast',
+		bgColor: '#000',
+		textColor: '#08f', 
+		borderColor: '#08f',
+		accentColor: '#08f',
+		buttonHoverColor: '#05a',
+		shadowColor: 'rgba(0, 0, 255, 0.2)',
+	  },
+	  contrast4: {
+		name: 'Yellow Contrast',
+		bgColor: '#000',
+		textColor: '#ff0', 
+		borderColor: '#ff0', 
+		accentColor: '#ff0',
+		buttonHoverColor: '#cc0', 
+		shadowColor: 'rgba(255, 255, 0, 0.2)',
+	  },
+	  contrast5: {
+		name: 'Orange Contrast',
+		bgColor: '#000',
+		textColor: '#ffa500',
+		borderColor: '#ffa500',
+		accentColor: '#ffa500',
+		buttonHoverColor: '#cc8400', 
+		shadowColor: 'rgba(255, 165, 0, 0.2)',
+	  }
     };
 
     // Function to initialize the settings window
